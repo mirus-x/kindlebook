@@ -28,13 +28,11 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! BookCell
 //        cell.backgroundColor = .orange
         
-//        let book = books?[indexPath.row]
-//        cell.textLabel?.text = book?.title
-//        cell.textLabel?.text = book?.author
-//        cell.imageView?.image = book?.image
+        let book = books?[indexPath.row]
+        cell.book = book
         return cell
     }
     

@@ -9,28 +9,35 @@
 import UIKit
 
 class BookCell: UITableViewCell{
+    // Instantiate a Book variable to set proper values to our private closures
+    
+    var book: Book? {
+        didSet {
+            coverImageView.image = book?.image
+            titleLabel.text = book?.title
+            authorLabel.text = book?.author
+        }
+    }
     //Creating closures for our custom BookCell
     
-    let coverImageView: UIImageView = {
+    private let coverImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "bill_gates")
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Very, very, very, very long title for the book"
-        label.backgroundColor = .blue
         return label
     }()
     
-    let authorLabel: UILabel = {
+    private let authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = " Autor name"
-        label.backgroundColor = .blue
         return label
     }()
     
