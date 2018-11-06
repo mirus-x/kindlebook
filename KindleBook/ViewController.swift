@@ -41,10 +41,21 @@ class ViewController: UIViewController {
         
         let pages = [page1, page2, page3]
         
-        let book = Book(title: "Incredible title of the first book",
+        let book1 = Book(title: "Incredible title of the first book",
                         author: "Incredible Writer",
                         pages: pages)
-        print("Title: \(book.title) \n Author: \(book.author)" )
+        
+        let book2 = Book(title: "Title for the second book", author: "Bad Ass Writer",
+                         pages: [Page(number: 1, text: "Text for the page 1"),
+                                 Page(number: 2, text: "Test for the page 2")])
+        
+        for book in [book1, book2]{
+            print("Title: \(book.title) \n Author: \(book.author)" )
+            for page in book.pages{
+                
+                print("Page number: \(page.number) \n Text: \(page.text)" )
+            }
+        }
         
     }
 
