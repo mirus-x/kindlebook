@@ -31,10 +31,10 @@ class ViewController: UITableViewController {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
 //        cell.backgroundColor = .orange
         
-        let book = books?[indexPath.row]
-        cell.textLabel?.text = book?.title
-        cell.textLabel?.text = book?.author
-        cell.imageView?.image = book?.image
+//        let book = books?[indexPath.row]
+//        cell.textLabel?.text = book?.title
+//        cell.textLabel?.text = book?.author
+//        cell.imageView?.image = book?.image
         return cell
     }
     
