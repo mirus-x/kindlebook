@@ -20,16 +20,20 @@ class Page{
 class Book{
     let title: String
     let author: String
-    let pages: [Page]
+    var pages: [Page]?
     
-    init(title: String, author: String, pages:[Page]) {
+    init(title: String, author: String, pages:[Page]?) {
         self.title = title
         self.author = author
-        self.pages = pages
+        if let pages = pages{
+            self.pages = pages
+        }
     }
 }
 
 class ViewController: UIViewController {
+    
+    var books: [Book]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +53,15 @@ class ViewController: UIViewController {
                          pages: [Page(number: 1, text: "Text for the page 1"),
                                  Page(number: 2, text: "Test for the page 2")])
         
-        for book in [book1, book2]{
+        let book3 = Book(title: "Title for the third book", author: "best seller Writer", pages: nil)
+        
+        self.books = [book1, book2, book3]
+        for book in self.books!{
             print("Title: \(book.title) \n Author: \(book.author)" )
-            for page in book.pages{
-                
-                print("Page number: \(page.number) \n Text: \(page.text)" )
+            if let pages = book.pages{
+                for page in pages{
+                    print("Page number: \(page.number) \n Text: \(page.text)" )
+                }
             }
         }
         
