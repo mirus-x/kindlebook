@@ -15,9 +15,33 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.tableFooterView = UIView()
         view.backgroundColor = .purple
+        navigationItem.title = "Kindle"
         setupBooks()
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+//        cell.backgroundColor = .orange
+        
+        let book = books?[indexPath.row]
+        cell.textLabel?.text = book?.title
+        cell.textLabel?.text = book?.author
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = books?.count{
+            return count
+        }
+        return 0
     }
     
     func setupBooks(){
