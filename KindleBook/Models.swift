@@ -6,7 +6,7 @@
 //  Copyright © 2018 2x2. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Page{
     let number: Int
@@ -20,11 +20,15 @@ class Page{
 class Book{
     let title: String
     let author: String
+    var image: UIImage?
     var pages: [Page]?
     
-    init(title: String, author: String, pages:[Page]?) {
+    init(title: String, author: String, image: UIImage?, pages:[Page]?) {
         self.title = title
         self.author = author
+        if let image = image{
+            self.image = image
+        }
         if let pages = pages{
             self.pages = pages
         }

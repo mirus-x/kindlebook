@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(BookCell.self, forCellReuseIdentifier: "cellId")
         tableView.tableFooterView = UIView()
         view.backgroundColor = .purple
         navigationItem.title = "Kindle"
@@ -34,6 +34,7 @@ class ViewController: UITableViewController {
         let book = books?[indexPath.row]
         cell.textLabel?.text = book?.title
         cell.textLabel?.text = book?.author
+        cell.imageView?.image = book?.image
         return cell
     }
     
@@ -51,15 +52,17 @@ class ViewController: UITableViewController {
         
         let pages = [page1, page2, page3]
         
-        let book1 = Book(title: "Incredible title of the first book",
-                         author: "Incredible Writer",
+        let book1 = Book(title: "Incredible life of Bill Gates",
+                         author: "Bill Gates",
+                         image: UIImage(named: "bill_gates"),
                          pages: pages)
         
-        let book2 = Book(title: "Title for the second book", author: "Bad Ass Writer",
+        let book2 = Book(title: "My faults, my success, my life", author: "Steve Jobs",
+                         image: UIImage(named: "steve_jobs"),
                          pages: [Page(number: 1, text: "Text for the page 1"),
                                  Page(number: 2, text: "Test for the page 2")])
         
-        let book3 = Book(title: "Title for the third book", author: "best seller Writer", pages: nil)
+        let book3 = Book(title: "Title for the third book", author: "best seller Writer",  image: nil,  pages: nil)
         
         self.books = [book1, book2, book3]
         for book in self.books!{

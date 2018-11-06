@@ -16,6 +16,8 @@
 		8ECED9C021910CEA0061A0A0 /* KindleBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9BF21910CEA0061A0A0 /* KindleBookUITests.swift */; };
 		8ECED9CE219125BB0061A0A0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9CD219125BB0061A0A0 /* Models.swift */; };
 		8ECED9CF219125BB0061A0A0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9CD219125BB0061A0A0 /* Models.swift */; };
+		8ECED9D121913A2E0061A0A0 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D021913A2E0061A0A0 /* BookCell.swift */; };
+		8ECED9D221913A2E0061A0A0 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D021913A2E0061A0A0 /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		8ECED9BF21910CEA0061A0A0 /* KindleBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindleBookUITests.swift; sourceTree = "<group>"; };
 		8ECED9C121910CEA0061A0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECED9CD219125BB0061A0A0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8ECED9D021913A2E0061A0A0 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 			children = (
 				8ECED99C21910CE70061A0A0 /* AppDelegate.swift */,
 				8ECED99E21910CE70061A0A0 /* ViewController.swift */,
+				8ECED9D021913A2E0061A0A0 /* BookCell.swift */,
 				8ECED9CD219125BB0061A0A0 /* Models.swift */,
 				8ECED9A621910CE90061A0A0 /* Assets.xcassets */,
 				8ECED9A821910CE90061A0A0 /* LaunchScreen.storyboard */,
@@ -263,6 +267,7 @@
 				8ECED99D21910CE70061A0A0 /* AppDelegate.swift in Sources */,
 				8ECED9A521910CE70061A0A0 /* KindleBook.xcdatamodeld in Sources */,
 				8ECED9CE219125BB0061A0A0 /* Models.swift in Sources */,
+				8ECED9D121913A2E0061A0A0 /* BookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ECED9D221913A2E0061A0A0 /* BookCell.swift in Sources */,
 				8ECED9B521910CEA0061A0A0 /* KindleBookTests.swift in Sources */,
 				8ECED9CF219125BB0061A0A0 /* Models.swift in Sources */,
 			);
