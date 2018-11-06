@@ -8,37 +8,19 @@
 
 import UIKit
 
-class Page{
-    let number: Int
-    let text: String
-    init(number: Int, text: String) {
-        self.number = number
-        self.text = text
-    }
-}
-
-class Book{
-    let title: String
-    let author: String
-    var pages: [Page]?
-    
-    init(title: String, author: String, pages:[Page]?) {
-        self.title = title
-        self.author = author
-        if let pages = pages{
-            self.pages = pages
-        }
-    }
-}
-
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
     
     var books: [Book]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = .purple
+        setupBooks()
         
+    }
+    
+    func setupBooks(){
         let page1 = Page(number: 1, text: "This is first page of the book")
         let page2 = Page(number: 2, text: "This is second page of the book")
         let page3 = Page(number: 3, text: "This is third page of the book")
@@ -46,8 +28,8 @@ class ViewController: UIViewController {
         let pages = [page1, page2, page3]
         
         let book1 = Book(title: "Incredible title of the first book",
-                        author: "Incredible Writer",
-                        pages: pages)
+                         author: "Incredible Writer",
+                         pages: pages)
         
         let book2 = Book(title: "Title for the second book", author: "Bad Ass Writer",
                          pages: [Page(number: 1, text: "Text for the page 1"),
@@ -64,7 +46,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
     }
 
 
