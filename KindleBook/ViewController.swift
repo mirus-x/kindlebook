@@ -37,12 +37,19 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedBook = self.books?[indexPath.row]
+//        print(book.title)
+//        return
+        
+        
         // Set layout to pass into our collectionview
         let layout = UICollectionViewFlowLayout()
         //setupo controller for our pageController
-        let bookPageController = BookPagerController(collectionViewLayout: layout)
+        let bookPagerController = BookPagerController(collectionViewLayout: layout)
+        bookPagerController.book = selectedBook
         // setup navigation bar to go to the prev page
-        let navController = UINavigationController(rootViewController: bookPageController)
+        let navController = UINavigationController(rootViewController: bookPagerController)
         
         present(navController, animated: true, completion: nil)
     }
