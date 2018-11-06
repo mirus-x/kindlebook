@@ -36,6 +36,17 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Set layout to pass into our collectionview
+        let layout = UICollectionViewFlowLayout()
+        //setupo controller for our pageController
+        let bookPageController = BookPagerController(collectionViewLayout: layout)
+        // setup navigation bar to go to the prev page
+        let navController = UINavigationController(rootViewController: bookPageController)
+        
+        present(navController, animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = books?.count{
             return count
