@@ -20,7 +20,41 @@ class ViewController: UITableViewController {
         view.backgroundColor = .purple
         navigationItem.title = "Kindle"
         setupBooks()
+        fetchBooks()
         
+    }
+    
+    func fetchBooks(){
+        print("Fetching books...")
+        
+        let urlEndpoint: String = "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/kindle.json"
+        guard let url = URL(string: urlEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest, completionHandler:
+        { (data: Data?, response: URLResponse?, error: Error?) in
+            // this is where the completion handler code goes
+            
+            if let error = error {
+                print("Cannot fetch data: ",error)
+                return
+            }
+            
+            if let response = response {
+                print(response)
+            }
+            
+            guard let data = data else{return}
+            let dataToString = String(data: data, encoding: .utf8)
+            print(dataToString)
+            
+        })
+        task.resume()
+
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
