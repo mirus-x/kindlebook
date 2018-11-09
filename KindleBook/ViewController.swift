@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         view.backgroundColor = .purple
         navigationItem.title = "Kindle"
-        setupBooks()
+        
         fetchBooks()
         
     }
@@ -49,8 +49,29 @@ class ViewController: UITableViewController {
             }
             
             guard let data = data else{return}
-            let dataToString = String(data: data, encoding: .utf8)
-            print(dataToString)
+            
+            do{
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+//                print(json)
+                
+                guard let bookDictionaries = json as? [[String: Any]]
+                    else{return}
+                self.books = []
+                for bookDictionary in bookDictionaries{
+                    if let title = bookDictionary["title"] as? String,
+                        let author = bookDictionary["author"] as? String{
+                            let book = Book(title: title, author: author, image: UIImage(named: "bill_gates"), pages: [])
+//                        print(book.title)
+                        self.books?.append(book)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }catch let jsonError{
+                print("Failed to parse JSON object properly ", jsonError )
+            }
+            
             
         })
         task.resume()
