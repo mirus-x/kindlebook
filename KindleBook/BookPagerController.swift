@@ -24,7 +24,7 @@ class BookPagerController: UICollectionViewController, UICollectionViewDelegateF
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector (self.handleCloseBook))
     }
     
-    @IBAction func handleCloseBook(){
+    @objc func handleCloseBook(){
         dismiss(animated: true, completion: nil)
     }
     

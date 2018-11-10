@@ -170,12 +170,13 @@ class ViewController: UITableViewController {
         
         let selectedBook = self.books?[indexPath.row]
         
-        
         // Set layout to pass into our collectionview
         let layout = UICollectionViewFlowLayout()
-        //setupo controller for our pageController
+        
+        //setup controller for our pageController
         let bookPagerController = BookPagerController(collectionViewLayout: layout)
         bookPagerController.book = selectedBook
+        
         // setup navigation bar to go to the prev page
         let navController = UINavigationController(rootViewController: bookPagerController)
         
@@ -189,8 +190,26 @@ class ViewController: UITableViewController {
         return 0
     }
     
-    
+//    func tableView(_ tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+//        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+//            cell.backgroundColor = UIColor.greenColor()
+//        }
+//    }
 
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.backgroundColor = Colors.lighterGrey
+        }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.backgroundColor = Colors.lightGrey
+        }
+
+    }
+    
 
 }
 

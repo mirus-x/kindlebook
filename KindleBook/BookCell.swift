@@ -63,6 +63,9 @@ class BookCell: UITableViewCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .clear
+        let view = UIView()
+        view.backgroundColor = Colors.lighterGrey
+        selectedBackgroundView = view
         
         addSubview(coverImageView)
         coverImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true

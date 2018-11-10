@@ -13,5 +13,6 @@ struct Colors {
     static let white = UIColor.white
     static let black = UIColor.black
     static let lightGrey = UIColor(red: 80/255, green: 80/255, blue: 80/255, alpha: 1)
+    static let lighterGrey = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
     static let separatorColor = UIColor(white: 1, alpha: 0.2)
 }
