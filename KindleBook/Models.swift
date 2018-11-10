@@ -27,15 +27,13 @@ class Page{
 class Book{
     let title: String
     let author: String
-    var image: UIImage?
+    var image: String
     var pages: [Page]?
     
-    init(title: String, author: String, image: UIImage?, pages:[Page]?) {
+    init(title: String, author: String, image: String, pages:[Page]?) {
         self.title = title
         self.author = author
-        if let image = image{
             self.image = image
-        }
         if let pages = pages{
             self.pages = pages
         }
@@ -44,7 +42,9 @@ class Book{
     init(dictionary: [String: Any]) {
         self.title = dictionary["title"] as? String ?? ""
         self.author = dictionary["author"] as? String ?? ""
-        self.image = UIImage(named: "bill_gates")
+        
+        
+        self.image = dictionary["coverImageUrl"] as? String ?? ""
         
         /* since our Pages has it is own class and it is also optional in our book class
            we can just create another for loop and cast our pages to our Page class

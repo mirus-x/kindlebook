@@ -44,10 +44,6 @@ class ViewController: UITableViewController {
                 return
             }
             
-            if let response = response {
-                print(response)
-            }
-            
             guard let data = data else{return}
             
             do{
@@ -88,8 +84,6 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedBook = self.books?[indexPath.row]
-//        print(book.title)
-//        return
         
         
         // Set layout to pass into our collectionview
@@ -110,35 +104,7 @@ class ViewController: UITableViewController {
         return 0
     }
     
-    func setupBooks(){
-        let page1 = Page(number: 1, text: "This is first page of the book")
-        let page2 = Page(number: 2, text: "This is second page of the book")
-        let page3 = Page(number: 3, text: "This is third page of the book")
-        
-        let pages = [page1, page2, page3]
-        
-        let book1 = Book(title: "Incredible life of Bill Gates",
-                         author: "Bill Gates",
-                         image: UIImage(named: "bill_gates"),
-                         pages: pages)
-        
-        let book2 = Book(title: "My faults, my success, my life", author: "Steve Jobs",
-                         image: UIImage(named: "steve_jobs"),
-                         pages: [Page(number: 1, text: "Text for the page 1"),
-                                 Page(number: 2, text: "Test for the page 2")])
-        
-        let book3 = Book(title: "Title for the third book", author: "best seller Writer",  image: nil,  pages: nil)
-        
-        self.books = [book1, book2, book3]
-        for book in self.books!{
-            print("Title: \(book.title) \n Author: \(book.author)" )
-            if let pages = book.pages{
-                for page in pages{
-                    print("Page number: \(page.number) \n Text: \(page.text)" )
-                }
-            }
-        }
-    }
+    
 
 
 }

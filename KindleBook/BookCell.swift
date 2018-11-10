@@ -13,9 +13,24 @@ class BookCell: UITableViewCell{
     
     var book: Book? {
         didSet {
-            coverImageView.image = book?.image
             titleLabel.text = book?.title
             authorLabel.text = book?.author
+            
+            coverImageView.image = nil
+            
+            guard let image = book?.image else {return}
+            guard let imageUrl = URL(string: image) else {return}
+            URLSession.shared.dataTask(with: imageUrl){(data, response, error) in
+                if let error = error {
+                    print("Cannot rettrieve image file from external server: ",error)
+                    return
+                }
+                guard let imageData = data else {return}
+                let imageFile = UIImage(data: imageData)
+                DispatchQueue.main.async {
+                    self.coverImageView.image = imageFile
+                }
+            }.resume()
         }
     }
     //Creating closures for our custom BookCell
@@ -43,8 +58,6 @@ class BookCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        print("Cell is beingn initialised")
         
         addSubview(coverImageView)
         coverImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
