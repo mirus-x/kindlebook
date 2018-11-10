@@ -22,6 +22,7 @@ class ViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = Colors.lightGrey
         tableView.separatorColor = Colors.separatorColor
+        tableView.alwaysBounceVertical = false
         
         navigationItem.title = "Kindle"
         
@@ -66,10 +67,18 @@ class ViewController: UITableViewController {
         sortButton.rightAnchor.constraint(equalTo: footerView.rightAnchor, constant: -15).isActive = true
         sortButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         sortButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
-        
+        sortButton.addTarget(self, action: #selector(sortBooks), for: .touchUpInside)
         
         
         return footerView
+    }
+    
+    @objc func sortBooks(){
+        self.books = self.books?.sorted(by: { $0.title < $1.title })
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
