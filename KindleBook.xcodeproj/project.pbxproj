@@ -22,6 +22,8 @@
 		8ECED9D52191F0610061A0A0 /* BookPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D32191F0610061A0A0 /* BookPagerController.swift */; };
 		8ECED9D72192270B0061A0A0 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D62192270B0061A0A0 /* PageCell.swift */; };
 		8ECED9D82192270B0061A0A0 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D62192270B0061A0A0 /* PageCell.swift */; };
+		8ECED9DA2197373C0061A0A0 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D92197373C0061A0A0 /* Structures.swift */; };
+		8ECED9DB2197373C0061A0A0 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECED9D92197373C0061A0A0 /* Structures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 		8ECED9D021913A2E0061A0A0 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		8ECED9D32191F0610061A0A0 /* BookPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagerController.swift; sourceTree = "<group>"; };
 		8ECED9D62192270B0061A0A0 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		8ECED9D92197373C0061A0A0 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 				8ECED9A821910CE90061A0A0 /* LaunchScreen.storyboard */,
 				8ECED9AB21910CE90061A0A0 /* Info.plist */,
 				8ECED9A321910CE70061A0A0 /* KindleBook.xcdatamodeld */,
+				8ECED9D92197373C0061A0A0 /* Structures.swift */,
 			);
 			path = KindleBook;
 			sourceTree = "<group>";
@@ -278,6 +282,7 @@
 				8ECED9CE219125BB0061A0A0 /* Models.swift in Sources */,
 				8ECED9D121913A2E0061A0A0 /* BookCell.swift in Sources */,
 				8ECED9D72192270B0061A0A0 /* PageCell.swift in Sources */,
+				8ECED9DA2197373C0061A0A0 /* Structures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECED9D221913A2E0061A0A0 /* BookCell.swift in Sources */,
+				8ECED9DB2197373C0061A0A0 /* Structures.swift in Sources */,
 				8ECED9D82192270B0061A0A0 /* PageCell.swift in Sources */,
 				8ECED9B521910CEA0061A0A0 /* KindleBookTests.swift in Sources */,
 				8ECED9D52191F0610061A0A0 /* BookPagerController.swift in Sources */,

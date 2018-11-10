@@ -14,6 +14,9 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBarStyles()
+        setupNavBarButtons()
+        
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(BookCell.self, forCellReuseIdentifier: "cellId")
         tableView.tableFooterView = UIView()
@@ -22,6 +25,39 @@ class ViewController: UITableViewController {
         
         fetchBooks()
         
+    }
+    
+    func setupNavBarButtons(){
+        let menuIcon: UIImage = {
+            let menuIcon = UIImage(named: "menu")
+            return menuIcon!
+        }()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image:  menuIcon.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuPress))
+        
+        let amazonIcon: UIImage = {
+            let amazonIcon = UIImage(named: "amazon_icon")
+            return amazonIcon!
+        }()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: amazonIcon.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleAmazonIconPress))
+        
+    }
+    
+    @objc func handleAmazonIconPress(){
+        let url = URL(string: "https://www.amazon.com")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+    }
+    
+    @objc func handleMenuPress(){
+        print("Menu button pressed...")
+    }
+    
+    func setupNavigationBarStyles(){
+        print("Setup Navigation bar styles ...")
+        navigationController?.navigationBar.barTintColor = Colors.darkGrey
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.white]
     }
     
     func fetchBooks(){
