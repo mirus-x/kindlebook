@@ -46,6 +46,8 @@ class BookCell: UITableViewCell{
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Very, very, very, very long title for the book"
+        label.textColor = Colors.white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     
@@ -53,11 +55,14 @@ class BookCell: UITableViewCell{
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = " Autor name"
+        label.textColor = Colors.separatorColor
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = .clear
         
         addSubview(coverImageView)
         coverImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true

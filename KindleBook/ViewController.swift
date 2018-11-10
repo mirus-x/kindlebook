@@ -20,11 +20,60 @@ class ViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(BookCell.self, forCellReuseIdentifier: "cellId")
         tableView.tableFooterView = UIView()
-        view.backgroundColor = .purple
+        tableView.backgroundColor = Colors.lightGrey
+        tableView.separatorColor = Colors.separatorColor
+        
         navigationItem.title = "Kindle"
         
         fetchBooks()
         
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = Colors.darkGrey
+        
+        let segmentedControl = UISegmentedControl(items: ["Cloud", "Device"])
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.tintColor = Colors.lightGrey
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Colors.white], for: UIControl.State.selected)
+        segmentedControl.selectedSegmentIndex = 0
+        footerView.addSubview(segmentedControl)
+        
+        segmentedControl.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        segmentedControl.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        segmentedControl.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
+        segmentedControl.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        
+        let gridButton = UIButton(type: .system)
+        let gridImage = UIImage(named: "grid")!
+        gridButton.setImage(gridImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        gridButton.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(gridButton)
+        
+        gridButton.leftAnchor.constraint(equalTo: footerView.leftAnchor, constant: 15).isActive = true
+        gridButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        gridButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        
+        
+        
+        let sortButton = UIButton(type: .system)
+        let sortImage = UIImage(named: "sort")!
+        sortButton.setImage(sortImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        sortButton.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(sortButton)
+        
+        sortButton.rightAnchor.constraint(equalTo: footerView.rightAnchor, constant: -15).isActive = true
+        sortButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        sortButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        
+        
+        
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func setupNavBarButtons(){
