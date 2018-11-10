@@ -52,18 +52,13 @@ class ViewController: UITableViewController {
             
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-//                print(json)
                 
                 guard let bookDictionaries = json as? [[String: Any]]
                     else{return}
                 self.books = []
                 for bookDictionary in bookDictionaries{
-                    if let title = bookDictionary["title"] as? String,
-                        let author = bookDictionary["author"] as? String{
-                            let book = Book(title: title, author: author, image: UIImage(named: "bill_gates"), pages: [])
-//                        print(book.title)
-                        self.books?.append(book)
-                    }
+                    let book = Book(dictionary: bookDictionary)
+                    self.books?.append(book)
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -84,7 +79,6 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! BookCell
-//        cell.backgroundColor = .orange
         
         let book = books?[indexPath.row]
         cell.book = book
